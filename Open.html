@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Surprise ❤️</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+}
+
+/* Background */
+.romantic-bg{
+    background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 50%, #0f172a 100%);
+}
+
+/* Fade Transition */
+.fade-in{
+    animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* Glow Button */
+.glow-btn{
+    box-shadow: 0 0 20px #ff1744;
+    background: #ff1744 !important;
+}
+
+/* Floating Hearts */
+.heart{
+    position: absolute;
+    color: #ff1744;
+    animation: floatHeart linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes floatHeart{
+    from{
+        transform:translateY(110vh) scale(.5);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px) scale(1.3);
+        opacity:0;
+    }
+}
+
+/* Balloons */
+.balloon{
+    position:absolute;
+    font-size:60px;
+    animation:balloonFloat ease-in-out infinite;
+}
+
+@keyframes balloonFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-35px);
+    }
+}
+
+/* Typewriter */
+.typewriter{
+    overflow:hidden;
+    white-space:nowrap;
+    border-right:3px solid #fff;
+    animation:
+    typing 4s steps(20,end),
+    blink .8s infinite;
+}
+
+@keyframes typing{
+    from{width:0}
+    to{width:100%}
+}
+
+@keyframes blink{
+    50%{
+        border-color:transparent;
+    }
+}
+
+/* Rose Animation */
+.rose{
+    animation:roseMove 3s ease-in-out infinite;
+}
+
+@keyframes roseMove{
+    0%,100%{
+        transform:translateY(0) rotate(-3deg);
+    }
+    50%{
+        transform:translateY(-15px) rotate(3deg);
+    }
+}
+
+/* Glass Card */
+.glass{
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 8px 32px rgba(0,0,0,.3);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Landing Screen -->
+<section id="home"
+class="h-screen romantic-bg flex justify-center items-center relative">
+
+<button onclick="window.location.href='index.html';" class="absolute top-6 left-6 px-6 py-3 rounded-full bg-white/20 text-white border border-white/30 hover:bg-white/30 transition font-semibold">← Back Home</button>
+
+<div class="text-center">
+<h1 class="text-white text-5xl md:text-7xl font-bold mb-8">
+A Special Surprise ❤️
+</h1>
+
+<button
+onclick="showLovePage()"
+class="glow-btn px-10 py-4 rounded-full bg-pink-500 text-white text-xl font-bold hover:scale-105 transition-all duration-300">
+Open My Heart 💌
+</button>
+</div>
+
+</section>
+
+<!-- Love Page -->
+<section id="lovePage"
+class="hidden h-screen romantic-bg relative fade-in overflow-hidden">
+
+<button onclick="window.location.href='index.html';" class="absolute top-6 left-6 px-6 py-3 rounded-full bg-white/20 text-white border border-white/30 hover:bg-white/30 transition font-semibold z-50">← Back Home</button>
+
+<!-- Floating Hearts -->
+<script>
+for(let i=0;i<40;i++){
+document.write(`
+<div class="heart"
+style="
+left:${Math.random()*100}%;
+font-size:${15+Math.random()*30}px;
+animation-duration:${6+Math.random()*8}s;
+animation-delay:${Math.random()*5}s;">
+❤️
+</div>
+`);
+}
+</script>
+
+<!-- Balloons -->
+<div class="balloon left-10 top-20" style="animation-duration:5s">🎈</div>
+<div class="balloon right-10 top-32" style="animation-duration:7s">🎈</div>
+<div class="balloon left-1/2 top-10" style="animation-duration:6s">🎈</div>
+
+<!-- Main Card -->
+<div class="h-full flex justify-center items-center">
+
+<div class="glass rounded-3xl p-10 text-center max-w-2xl mx-5">
+
+<div class="rose text-8xl mb-4">
+🌹
+</div>
+
+<h1 class="text-white text-4xl md:text-7xl font-extrabold mb-6">
+❤️ I LOVE YOU ❤️
+</h1>
+
+<div class="mx-auto w-fit">
+<p class="typewriter text-pink-200 text-xl md:text-3xl font-semibold">
+You make my world beautiful...
+</p>
+</div>
+
+<p class="text-white/80 mt-8 text-lg">
+Every heartbeat whispers your name ✨
+</p>
+
+<div class="mt-8 text-4xl">
+💕 💖 ❤️ 💘 💝
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+function showLovePage(){
+    document.getElementById("home").style.display="none";
+    document.getElementById("lovePage").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
